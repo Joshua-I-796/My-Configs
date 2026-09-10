@@ -1,0 +1,36 @@
+theme = "rose_pine_blur"
+
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+auto-format = true
+
+
+[editor.lsp]
+enable = true
+display-inlay-hints = true
+
+[editor.auto-save]
+after-delay.enable = true
+
+[editor.indent-guides]
+render = true
+character = "╎"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "warning"
+
+
+[keys.normal]
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-file',
+  ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
